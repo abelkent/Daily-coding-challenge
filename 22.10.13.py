@@ -19,21 +19,21 @@ test_node = Node("root", Node("left"))
 
 def serialise(node):
     
-    #Has no children
-    if (node.left == None) and (node.right == None):
-        return (node.val + " " + "#" + " " + "#")
+    val = node.val
+    left = node.left
+    right = node.right
     
-    #Has left child
-    elif (node.left != None) and (node.right == None):
-        return (node.val + " " + serialise(node.left) +" "+ "#")
+    if left == None:
+        left = "#"
+    else:
+        left = serialise(left)
     
-    #Has right child
-    elif (node.left == None) and (node.right != None):
-        return (node.val + " " + "#" + " " +serialise(node.right))
+    if right == None:
+        right = "#"
+    else:
+        right = serialise(right)
     
-    #Has both children
-    elif (node.left != None) and (node.right != None):
-        return (node.val + " " + serialise(node.left) + " " + serialise(node.right))
+    return (val + " " + left + " "+ right)
 
 test_serial = serialise(test_node)
 experimental_serial = serialise(node)
