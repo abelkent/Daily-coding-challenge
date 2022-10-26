@@ -6,7 +6,7 @@ Given a stream of elements too large to store in memory, pick a random element f
 
 @author: abelw
 """
-
+import random
 
 
 #Creating data stream
@@ -19,6 +19,20 @@ def populate_memory(scale):
     print("Complete")
     
 
-def select_value(local_memory_scope):
-    pass
+#INCOMPLETE
+def select_value(retrieval_register_size):
+    retrieved_characters = []
+    storage = open("22.10.25 - Supplementary file.txt","r")
+    eof = False
+    while not eof:
+        batch = storage.readlines(retrieval_register_size)
+        batch = [item.strip("\n") for item in batch]
+        random_index = random.randint(0,retrieval_register_size)
+        print(random_index)
+        print(batch)
+        eof = True
+    
+
+test = select_value(100)
+    
         
