@@ -16,12 +16,18 @@ def minimum_room_finding(array):
         new_array =  list(array)
         new_array.remove(lesson)
         local_overlap = 0
+        print(new_array)
         for check in new_array:
             if (check[0] in range(lesson[0], lesson[1])) or (check[1] in range(lesson[0],lesson[1])):
                 local_overlap+=1
+                print(local_overlap)
+            
+        #print(local_overlap)
+        print(max_overlaps)
         
         if local_overlap > max_overlaps:
             max_overlaps = local_overlap
+
     
     if max_overlaps == 0:
         return 1
@@ -31,5 +37,6 @@ def minimum_room_finding(array):
 
 example = [(30, 75), (0, 50), (60, 150)]
 no_overlap = [(0,10),(11,20),(21,30)]
+all_overlap = [(0,100),(20,80),(40,60),(45,55)]
 
-test = minimum_room_finding(example)
+test = minimum_room_finding(all_overlap)
