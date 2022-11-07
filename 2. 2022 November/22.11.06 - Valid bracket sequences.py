@@ -2,6 +2,12 @@
 """
 Created on Mon Nov  7 12:38:27 2022
 
+Given a string of round, curly, and square open and closing brackets, return whether the brackets are balanced (well-formed).
+
+For example, given the string "([])[]({})", you should return true.
+
+Given the string "([)]" or "((()", you should return false.
+
 @author: abelw
 """
 
@@ -25,7 +31,7 @@ def bracket_validator(sequence): #Accepts string of brackets as "sequence"
             if final_character != item:
                 return False #If item and final_character do not match, return False
     
-    #After iteration checks if stack is empty, and returns True if yes and False if not
+    #After iteration checks if stack is empty and returns True if yes and False if not
     if len(stack) != 0:
         return False
     else:    
