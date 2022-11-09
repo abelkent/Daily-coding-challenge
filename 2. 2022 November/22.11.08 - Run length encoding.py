@@ -31,7 +31,9 @@ def encoder(string):
     
     return(output_string) #Returns output string
 
-test = encoder("AAAABBBCCDAA")
+input_string = "AAAABBBCCDAA"
+
+test = encoder(input_string)
 
 def naive_decoder(sequence): #Functions but only with character counts < 10
     output_string = ""
@@ -57,4 +59,6 @@ def decoder(sequence): #Functions for any value of int
 
     return output_string #Returns output string
         
-test_2 = decoder("7A89B")
+test_2 = decoder(encoder(input_string))
+
+print(test_2 == input_string)
