@@ -11,7 +11,7 @@ As another example, given the string "google", you should return "elgoogle".
 
 import string
 
-def palidrome_generator(sequence):
+def palidrome_generator_OLD(sequence):
 
     #Gets alphabet
     alphabet = list(string.ascii_uppercase)
@@ -55,6 +55,11 @@ def palidrome_generator(sequence):
     print(sequence[index])
 
 
+def palindrome_generator(sequence):
+    sequence = sequence.upper()
+    sequence = [x for x in sequence]
+    reverse = list(sequence)
+    reverse.reverse()
+    print(sequence, reverse)
 
-test = palidrome_generator("google")
-#print(test)
+palindrome_generator("cat")
