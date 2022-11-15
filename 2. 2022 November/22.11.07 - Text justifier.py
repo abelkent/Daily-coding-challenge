@@ -29,7 +29,7 @@ and k = 16, you should return the following:
 """
 import math
 
-def justifier(sequence, k):
+def justifier_OLD(sequence, k):
     output = []
     line= []
     line_length = 0
@@ -69,11 +69,49 @@ def justifier(sequence, k):
             
             line = next_line
             line_length = next_line_length
-            
-
-    
     return(output)
-
     #Pad remaining characters
 
+
+def justifier(sequence, k):
+    all_lines = list()
+    local_line = list()
+    line_length = 0
+    for word in sequence:
+        word_length = len(word)
+        if len(local_line) <= 1:
+            abs_length = int(line_length)
+        else:
+            abs_length = line_length + (len(local_line) -1)
+        #print(abs_length)
+        if (abs_length + word_length) <= k:
+            local_line.append(word)
+            line_length += word_length
+        else:
+            all_lines.append(local_line)
+            local_line = list()
+            local_line.append(word)
+            line_length = word_length
+    
+    if len(local_line) != 0:
+        all_lines.append(local_line)
+    
+    
+    for line in all_lines:
+        line_length = sum([len(x) for x in line])
+        padding = k - line_length
+        
+        spacing = padding // (len(line)-1)
+        remainder = padding % (len(line)-1)
+        #print(padding, spacing, remainder)
+
+        justified_line = ""
+        justified_line += line[0] + (" "*spacing) + (" "*remainder)
+        for word in line[1:-1]:
+            justified_line += word + (" "*spacing)
+        justified_line += line[-1]
+
+        print(justified_line, len(justified_line))
+
 test = justifier(["the", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog"] , 16)
+print(test)
