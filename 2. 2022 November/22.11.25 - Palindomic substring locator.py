@@ -6,7 +6,7 @@ For example, the longest palindromic substring of "aabcdcb" is "bcdcb". The long
 
 def palindromic_substring_locator(intake):
     #Defines empty list of palindromes
-    palindromes = []
+    longest_palindrome = []
     
     #Converts intake to list
     intake = [x for x in intake]
@@ -23,18 +23,13 @@ def palindromic_substring_locator(intake):
             invert.reverse()
             #Adds to local_string and creates a reverse copy of it, if the two match (ie, is a palidrome) it is added to palindrome list
             
-            if local_string == invert:
-                palindromes.append(local_string)
+            if (local_string == invert) and (len(local_string) > len(longest_palindrome)):
+                longest_palindrome = list(local_string)
+
 
     #If there are no palindromes present (1 string substrings are not considered) returns None
-    if len(palindromes) == 0:
+    if len(longest_palindrome) == 0:
         return None
     else: #Otherwise finds longest present palindrome
-        longest = []
-        for element in palindromes:
-            if len(element) > len(longest):
-                longest = element
-        
-        return("".join(longest)) #Returns longest (joined back into string)
-
+        return "".join(longest_palindrome)
 print(palindromic_substring_locator("banana"))
