@@ -17,7 +17,7 @@ def stock_profit(array):
         #Initial profit set to zero
         profit = 0
         for following_index in range(starting_index+1, len(array)):
-            #For each value, if potential profit is greater than current profit, profit is replaced
+            #For each value, if potential profit is greater than current profit, profit is replaced with new potential profit
             if profit < (array[following_index] - starting_value):
                 profit = (array[following_index] - starting_value)
     
