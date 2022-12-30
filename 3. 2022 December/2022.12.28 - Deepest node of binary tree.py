@@ -4,13 +4,16 @@ Given the root of a binary tree, return a deepest node. For example, in the foll
 """
 
 class Node():
+    #Initialisation
     def __init__(self, value, left = None, right = None):
         self.value = value
         self.left = left
         self.right = right
 
+    #Defines get deepest function
     def get_deepest(self, depth = 1):
 
+        #Defines data variables for each branch of a single node
         self_data = [self.value, depth]
         
         if self.left == None:
@@ -23,6 +26,7 @@ class Node():
         else:
             right_data = self.right.get_deepest(depth+1)
         
+        #Returns deepest node (weighted towards left)
         if (self_data[1] >= left_data[1]) and (self_data[1] >= right_data[1]):
             return self_data
         
