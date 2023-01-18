@@ -20,42 +20,51 @@ Output: 2
 It takes 1 step to move from (0, 0) to (1, 1). It takes one more step to move from (1, 1) to (1, 2)
 """
 
+#Defines function
 def minimum_steps(sequence):
 
+    #Initialises current position to first element in sequence
     x_current = sequence[0][0]
     y_current = sequence[0][1]
 
+    #Initialises step count at 0
     step_count = int(0)
 
+    #Iterates through each following element in sequence as new destination
     for destination in sequence[1:]:
-        print(destination)
+        print("New destination: "+str(destination))
+        #Destination is set as goal co-ordinates
         x_goal, y_goal = destination[0], destination[1]
         
-        while (x_current != x_goal) and (y_current != y_goal):
-            print(x_current,y_current)
-            step_this_turn = bool(False)
-            x_new = x_current
-            y_new = y_current
+        #While current position is not equal to goal position...
+        while (x_current != x_goal) or (y_current != y_goal):
 
-            if x_goal > x_current:
-                x_new += 1
-                step_this_turn = True
+            print("Current position: "+str(x_current) + " " + str(y_current))
+            #x and y change are set to zero
+            x_change, y_change = int(0),int(0)
+
+            #Updates x and y change based on relative position of destination
+            if (x_current < x_goal):
+                x_change = 1
+            elif (x_current > x_goal):
+                x_change = -1
             
-            elif x_goal < x_current:
-                x_new -= 1
-                step_this_turn = True
+            if (y_current < y_goal):
+                y_change = 1
+            elif (y_current > y_goal):
+                y_change = -1
             
-            if y_goal > y_current:
-                y_new += 1
-                step_this_turn = True
-            
-            elif y_goal < y_current:
-                step_this_turn = True
-            
-            if step_this_turn == True:
+            #If x or y have been changed, updates step count
+            if (x_change != 0) or (y_change != 0):
                 step_count += 1
-                x_current, y_current = x_new,y_new
+            
+            #Updates position
+            x_current += x_change
+            y_current += y_change
 
+            print("END OF TURN, CURRENT POSITION: "+str(x_current) + " " + str(y_current))
+
+    #Returns steps taken to user
     print("Total steps = " +str(step_count))
 
 minimum_steps([(0, 0), (1, 1), (1, 2), (1,3)])
