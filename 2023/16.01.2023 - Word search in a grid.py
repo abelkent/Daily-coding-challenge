@@ -26,7 +26,7 @@ def snake_word_search(grid, word):
     #1. for each element in grid, start search
         #a. if 
     
-    def snake_search(y_val, x_val, index):
+    def snake_search(y_val, x_val, index = 0):
 
         point = grid[y_val, x_val]
         if point == word[index]:
@@ -35,7 +35,16 @@ def snake_word_search(grid, word):
         if index == (len(word)-1):
             return True
         
-        def get_all_neighbours()
+        def get_all_neighbours(y_val, x_val):
+            neighbours = list()
+
+            #Above
+
+            #Down
+
+            #Left
+
+            #Right
 
 
         
