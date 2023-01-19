@@ -28,23 +28,33 @@ def simple_prime_checker(number):
     return True
 
 
+#Function definition
 def goldbach_sum_finder(number):
 
+    #Checks if input is an even number
     if (number % 2) != 0:
         print("This number is not even")
         return
 
+    #Prime value initialisation
     prime_a, prime_b = None,None
 
+    #Counts backwards from number-1 to 0, checking if each number is prime
     for potential_a in range(number-1, 0,-1):
         if simple_prime_checker(potential_a) == True:
+
+            #After finding the largest prime, sets prime_a to this value
             prime_a = potential_a
             
-            for potential_b in range(potential_a,0,-1):
-                if (potential_b + prime_a) == number:
-                    prime_b = potential_b
+            #Counts backwards from largest prime to zero, checking each number is prime
+            for potential_b in range(prime_a,0,-1):
+                
+                if simple_prime_checker(potential_b) == True:
+                        
+                    #When a prime number is found that sums with the first to make the input, returns the pair
+                    if (potential_b + prime_a) == number:
+                        prime_b = potential_b
+                        print(prime_a, prime_b)
+                        return (prime_a, prime_b)
 
-                    print(prime_a, prime_b)
-                    return (prime_a, prime_b)
-
-goldbach_sum_finder(994)
+goldbach_sum_finder(10234)
