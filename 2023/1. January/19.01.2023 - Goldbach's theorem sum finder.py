@@ -57,4 +57,4 @@ def goldbach_sum_finder(number):
                         print(prime_a, prime_b)
                         return (prime_a, prime_b)
 
-goldbach_sum_finder(10234)
+goldbach_sum_finder(64)
