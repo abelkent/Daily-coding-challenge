@@ -11,6 +11,15 @@ def smallest_substring_locator(string, array):
     shortest_substring = str()
     current_substring = str()
 
+    for starting_character in string:
+
+
+
+def smallest_substring_locator_OLD(string, array): #Doesn't work
+
+    shortest_substring = str()
+    current_substring = str()
+
     for starting_index in range(len(string)):
         character = string[starting_index]
 
