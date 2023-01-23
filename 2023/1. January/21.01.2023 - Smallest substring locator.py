@@ -46,7 +46,7 @@ def smallest_substring_locator(string, array):
     print (shortest_substring)
 
 
-smallest_substring_locator("figehaeci",["a","e","i"])
+smallest_substring_locator("Lucy Whelan",["l","w"])
 
 
 
