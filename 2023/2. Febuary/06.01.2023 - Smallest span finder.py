@@ -37,3 +37,48 @@ import math
 span_finder([[0, 3], [2, 6], [3, 4], [6, 9]])
 """
 
+def span_finder(list_of_intervals):
+
+    lowest_point = math.inf
+    highest_point = int(0)
+
+    list_of_ranges = list()
+    for interval in list_of_intervals:
+        if lowest_point > interval[0]:
+            lowest_point = interval[0]
+        if highest_point < interval[1]:
+            highest_point = interval[1]
+        
+    
+    #Count up
+    starting_point_check = bool(False)
+    starting_point = int(lowest_point)
+
+    while not(starting_point_check):
+        starting_point += 1
+
+        for interval in list_of_intervals:
+            if (starting_point > interval[0]) and (starting_point >= interval[1]):
+                starting_point_check = True
+                break
+    
+    ending_point_check = bool(False)
+    ending_point = int(highest_point)
+
+    while not(ending_point_check):
+        ending_point -= 1
+
+        for interval in list_of_intervals:
+            if (ending_point < interval[1]) and (ending_point <= interval[0]):
+                ending_point_check = True
+                break
+
+        
+    print([starting_point, ending_point])
+    return [starting_point, ending_point]
+span_finder([[0, 3], [2, 6], [3, 4], [6, 9]])
+
+
+#Useful utility function but realised I was overcomplicating my approach
+"""    def common_element_check(subset, superset):
+        return not all(x not in superset for x in subset)"""
