@@ -29,5 +29,8 @@ def span_finder(intervals):
     all_encompasing = [x for x in range(lowest, highest+1)]
     print(all_encompasing)
 
+    #Upwards knockoff
+    print(all(0 in interval_ranges))
+
 
 span_finder([[0, 3], [2, 6], [3, 4], [6, 9]])
