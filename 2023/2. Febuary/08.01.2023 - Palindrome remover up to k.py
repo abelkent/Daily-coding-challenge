@@ -14,13 +14,13 @@ def palindrome_checker(palindrome, k):
 
     halfway_point_reached = bool(False)
     
-    index = int(0)
+    for index in range(len(palindrome)):
 
-    for character in palindrome:
+#COME BACK TO THIS
+
+
         
-        print(character)
-        print(palindrome_clone[index])
-        index += 1
+    
 
 
 
