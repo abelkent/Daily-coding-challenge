@@ -15,6 +15,7 @@ def palindrome_checker(palindrome, k):
     halfway_point_reached = bool(False)
     
     for index in range(len(palindrome)):
+        pass
 
 #COME BACK TO THIS
 
