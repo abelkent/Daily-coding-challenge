@@ -89,9 +89,11 @@ def span_finder(list_of_intervals):
 
 def new_span_finder(list_of_intervals):
 
+    #Initialises lower and upper bound as infinity and 0 respectively
     lower_bound = math.inf
     upper_bound = int(0)
 
+    #Finds lowest upper bound and highest lower bound and returns to user
     for interval in list_of_intervals:
         if interval[0] > upper_bound:
             upper_bound = interval[0]
