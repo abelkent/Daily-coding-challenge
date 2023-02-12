@@ -76,9 +76,29 @@ def span_finder(list_of_intervals):
         
     print([starting_point, ending_point])
     return [starting_point, ending_point]
-span_finder([[0, 3], [2, 6], [3, 4], [6, 9]])
+#span_finder([[0, 3], [2, 6], [3, 4], [6, 9]])
 
 
 #Useful utility function but realised I was overcomplicating my approach
 """    def common_element_check(subset, superset):
         return not all(x not in superset for x in subset)"""
+
+
+#NEW APPROACH REALISED I WAS BEING A DUM-DUM
+#Just need to find lowest upper bound and highest lower bound
+
+def new_span_finder(list_of_intervals):
+
+    lower_bound = math.inf
+    upper_bound = int(0)
+
+    for interval in list_of_intervals:
+        if interval[0] > upper_bound:
+            upper_bound = interval[0]
+        
+        if interval[1] < lower_bound:
+            lower_bound = interval[1]
+    
+    print(lower_bound, upper_bound)
+
+new_span_finder([[0, 3], [2, 6], [3, 4], [6, 9]])
