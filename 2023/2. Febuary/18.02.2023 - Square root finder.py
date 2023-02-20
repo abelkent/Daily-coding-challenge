@@ -9,4 +9,14 @@ def sqrt_cheatsy(n):
     return math.sqrt(n)
 
 
+#Let's see if I can homebrew it
+def sqrt_own(n):
 
+    x = int(n)
+    if x == n:
+        print("Valid")
+    else:
+        print("Invalid")
+
+
+sqrt_own(5)
