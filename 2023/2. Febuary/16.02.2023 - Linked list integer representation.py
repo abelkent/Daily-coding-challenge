@@ -53,6 +53,8 @@ def node_addition(node_a, node_b):
     node_total = node_a + node_b
 
 
+#UNFINISHED
+
 
 linked_number = Node(1, Node(2, Node(3)))
 another_linked_number = Node(9, Node(5))
