@@ -7,17 +7,23 @@ range(lower, upper): returns the number of hits that occurred between timestamps
 Follow-up: What if our system has limited memory?
 """
 
+#Implementation 1: Unconcerned with memory consumption
+
 class HitCounter():
     def __init__(self):
+        #Only local attribute is a blank array of timestamps (at initialisation) 
         self.timestamps = list()
-    
+
+    #Record adds timestamp to timestamp array
     def record(self, timestamp):
         self.timestamps.append(timestamp)
     
+    #Total returns length of timestamp array
     def total(self):
         print (len(self.timestamps))
         return (len(self.timestamps))
     
+    #Range returns number of hits within given range
     def range(self, lower, upper):
         hits_in_range = int(0)
         for timestamp in self.timestamps:
@@ -27,6 +33,7 @@ class HitCounter():
         print (hits_in_range)
         return hits_in_range
 
+#Tests
 counter = HitCounter()
 counter.record(1)
 counter.record(3)
