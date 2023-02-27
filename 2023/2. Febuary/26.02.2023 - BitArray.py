@@ -13,28 +13,40 @@ get(i): gets the value at index i.
 
 class BitArray():
     def __init__(self, size):
-        self.data = dict()
+        self.data = list()
+        
+        if (size <= 0) or (type(size) != int):
+            raise ValueError("Proposed size must be positive integer")
         self.size = size
+
     
     def set(self, i, val):
+        if i > self.size:
+            raise IndexError("Proposed set index beyond scope of BitArray")
+        if val not in [1,0]:
+            raise ValueError("Proposed set value is not bit format")
 
-        if i >= self.size:
-            raise IndexError("Propsed index for set() beyond defined size of BitArray")
-        
+        #Occurences for if val is 0
         if val == 0:
-            self.data.pop(i, 0)
-            return
-
-        if i not in self.data.keys():
-            self.data[i] = val
-        else:
-            self.data.update(i, val)
-    
-    def get(self, i):
+            if i in self.data:
+                self.data.remove(i)
         
-        if i in self.data.keys():
+        #Occurences for if val is 1
+        elif val == 1:
+            if i not in self.data:
+                self.data.append(i)
+        
+    def get(self, i):
+        if i in self.data:
+            print(1)
             return 1
         else:
+            print(0)
             return 0
-    #This makes me realise that both my implementation for this is innefficient, needs only record positon of 1s, hence dict is redundant
 
+bitsy = BitArray(100)
+bitsy.set(5,1)
+bitsy.get(5)
+bitsy.set(5,0)
+print(bitsy.data)
+#bitsy.set(101, 1)
