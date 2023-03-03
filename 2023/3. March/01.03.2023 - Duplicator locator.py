@@ -9,7 +9,7 @@ For example, given the array [2, 4, 6, 8, 10, 2, 6, 10], return 4 and 8. The ord
 
 import time
 
-def duplicator_locator(array):
+def duplicator_locator_stack(array):
     stack = list()
     for element in array:
         if element not in stack:
@@ -20,6 +20,17 @@ def duplicator_locator(array):
     return stack
 
 before = time.time()
-print(duplicator_locator([2, 4, 6, 8, 10, 2, 6, 10]))
+print(duplicator_locator_stack([2, 4, 6, 8, 10, 2, 6, 10]))
 after = time.time()
 print(after - before)
+
+"""def duplicator_locator_sorted(array):
+    cache = list([None,None])
+    array = sorted(array)
+    print(array)
+
+
+duplicator_locator_sorted([2, 4, 6, 8, 10, 2, 6, 10])
+"""
+
+
