@@ -16,8 +16,10 @@ def duplicator_locator(array):
             stack.append(element)
         else:
             stack.remove(element)
-        
     
     return stack
 
+before = time.time()
 print(duplicator_locator([2, 4, 6, 8, 10, 2, 6, 10]))
+after = time.time()
+print(after - before)
