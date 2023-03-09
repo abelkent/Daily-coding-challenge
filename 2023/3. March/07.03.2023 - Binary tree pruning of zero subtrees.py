@@ -20,12 +20,14 @@ should be pruned to:
 We do not remove the tree at the root or its left child because it still has a 1 as a descendant.
 """
 
+#Node class definitioon
 class Node:
     def __init__(self, root, left = None, right = None):
         self.root = root
         self.left = left
         self.right = right
     
+    #Function to check if subtree (including self) are comprised of all zero nodes
     def check_if_all_zero(self):
 
         if self.root == 0:
@@ -45,6 +47,7 @@ class Node:
         
         return (root_value and left_value and right_value)
 
+    #Pruning function that deletes child notes if they are all zero subtrees
     def prune(self):
         
         if self.left == None:
@@ -66,4 +69,4 @@ print(test_node.check_if_all_zero())
 print(test_node.left.check_if_all_zero())
 print(test_node.left.root)
 test_node.prune()
-print(test_node.left.root)
+#print(test_node.left.root) //Generates error as node no longer exists
