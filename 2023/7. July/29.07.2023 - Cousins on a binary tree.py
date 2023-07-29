@@ -13,7 +13,7 @@ class Node():
 
 def cousin_locator(tree, node):
 
-    def data_harvester(tree, target_node, depth = int(0), parent = None):
+    def data_harvester(tree, target_node, depth = 0, parent = 0):
         
         if tree.root == target_node:
             return (depth, parent)
@@ -21,17 +21,17 @@ def cousin_locator(tree, node):
         if tree.left != None:
             left_value = data_harvester(tree.left, target_node)
         else:
-            left_value = (int(0), int(0))
+            left_value = [0,0]
         
         if tree.right != None:
             right_value = data_harvester(tree.right, target_node)
         else:
-            right_value = (int(0), int(0))
+            right_value = [0,0]
         
         new_depth = depth =+ 1
         new_parent = tree.root
 
-        return max(left_value, right_value)
+        return max([left_value[0], right_value[0]])
 
     print(data_harvester(tree, node))
 
